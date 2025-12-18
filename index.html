@@ -76,7 +76,7 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
       <a href="#travel">National Parks</a>
       <a href="#cooper">Cooper</a>
       <a href="#now">Now</a>
-      <a href="promotion.html"><strong>Promotion Case →</strong></a>
+      <a href="promotion.html"><strong>Career Profile →</strong></a>
     </nav>
   </div>
   <div class="progress" id="progress"></div>
@@ -88,10 +88,13 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
     <div class="grid grid-2">
       <div>
         <div class="badge">Metro Detroit • Michigan State University</div>
-        <h1>Hey, I’m Jacob Rubis</h1>
+        <h1>Hey, I'm Jacob Rubis</h1>
         <div class="small" style="margin:2px 0 10px; opacity:.9">Inbound SDR @ ServiceNow</div>
         <p class="muted">
-          I earned my <strong>Marketing &amp; Sales</strong> degree at <strong>Michigan State University</strong> (Spartan through and through). I just came up on 1 year in San Diego in August! I love playing sports, exploring, and staying active.
+          I earned my <strong>Marketing &amp; Sales</strong> degree at <strong>Michigan State University</strong> (Spartan through and through). I've been living in San Diego since August 2024! I love playing sports, exploring, and staying active.
+        </p>
+        <p class="muted">
+          <strong>2025 highlight: I become an uncle and Godfather in July!</strong>
         </p>
         <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap">
           <a href="https://www.linkedin.com/in/jacobrubis/" target="_blank" class="tile" style="padding:10px 14px; border-radius:12px; font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2))">LinkedIn</a>
@@ -109,7 +112,7 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
         background:#0c1a22;
         margin-inline:auto;
       ">
-        <img src="assets/headshot.JPG" alt="Jacob Rubis headshot" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="assets/1HEADSHOT.jpg" alt="Jacob Rubis headshot" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
     </div>
   </section>
@@ -120,14 +123,14 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
     <div class="grid grid-3">
       <div class="tile"><strong>Michigan State Pride</strong><p class="muted">Earned my Marketing &amp; Sales degree at <strong>MSU</strong> (Go Green!). I interned in sales and built a foundation in teamwork and process.</p></div>
       <div class="tile"><strong>Sports</strong><p class="muted">Detroit sports fan (Go Lions 🦁). Grew up playing baseball &amp; basketball; still hoop in leagues. Picked up golf during COVID and play often (my bank account would say too often!).</p></div>
-      <div class="tile"><strong>Hobbies</strong><p class="muted">I love my dog Cooper (wish I got to see him more), like outdoor adventures and nature, and I’m challenging myself with running.</p></div>
+      <div class="tile"><strong>Hobbies</strong><p class="muted">I love my dog Cooper (wish I got to see him more), like outdoor adventures and nature, and I'm challenging myself with running.</p></div>
     </div>
   </section>
 
   <!-- PARKS -->
   <section id="travel" class="section card pad">
     <h2>National Parks</h2>
-    <p class="muted">I’ve driven Michigan ↔ San Diego twice, stopping at parks along the way. <strong>Glacier coming in November!</strong></p>
+    <p class="muted">I've driven Michigan ↔ San Diego twice, stopping at parks along the way.</p>
     <div class="carousel" data-id="parks">
       <div class="frame"></div>
       <div class="title small"></div>
@@ -139,7 +142,7 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
       </div>
     </div>
     <div class="tile" style="margin-top:14px">
-      <strong>National Parks I’ve visited: <span id="parksCount">0</span></strong>
+      <strong>National Parks I've visited: <span id="parksCount">0</span></strong>
       <div id="parksBadges" style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px"></div>
     </div>
   </section>
@@ -159,15 +162,11 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
     </div>
   </section>
 
-  <!-- NOW (restored) -->
+  <!-- NOW (updated with just AI Projects) -->
   <section id="now" class="section card pad">
     <div class="banner" aria-hidden="true"></div>
     <h2>Now</h2>
     <div class="grid grid-3">
-      <div class="tile">
-        <strong>MIT Course (Fall)</strong>
-        <p class="muted">Enrolled in <em>Applied Agentic AI for Organizational Transformation</em> at MIT. I’ll bring back practical learnings, frameworks, and examples to level up our team’s workflows.</p>
-      </div>
       <div class="tile">
         <strong>AI Projects</strong>
         <p class="muted">Building small tools that save time (email drafting, discovery summaries, pre-call briefs). Focused on adoption and measurable impact—then sharing out with the team.</p>
@@ -177,7 +176,7 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
 
   <section class="section card pad" style="text-align:center">
     <div class="banner" aria-hidden="true"></div>
-    <a href="promotion.html" class="tile" style="padding:10px 14px; border-radius:12px; font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2))">View Promotion Case</a>
+    <a href="promotion.html" class="tile" style="padding:10px 14px; border-radius:12px; font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2))">View Career Profile</a>
   </section>
 
   <footer>
@@ -244,7 +243,8 @@ const carousels = {
     {src:'assets/Yosemite1.JPG',   title:'Yosemite National Park'},
     {src:'assets/Bryce.JPG',       title:'Bryce Canyon National Park'},
     {src:'assets/GrandTeton.JPG',  title:'Grand Teton National Park'},
-    {src:'assets/GrandTeton2.JPG', title:'Grand Teton National Park'}
+    {src:'assets/GrandTeton2.JPG', title:'Grand Teton National Park'},
+    {src:'assets/Glacier.jpeg',    title:'Glacier National Park'}
   ],
   cooper: [
     {src:'assets/Cooper1.JPG'},
@@ -260,8 +260,8 @@ document.querySelectorAll('.carousel').forEach(el=>{
   if(items.length) makeCarousel(el, items, 5000);
 });
 
-/* Badges: show ALL 9 unique parks (even if fewer images) */
-const allParks=['Badlands','Great Basin','Rocky Mountain','Zion','Arches','Grand Canyon','Grand Teton','Yosemite','Joshua Tree'];
+/* Badges: show ALL 10 unique parks */
+const allParks=['Badlands','Great Basin','Rocky Mountain','Zion','Arches','Grand Canyon','Grand Teton','Yosemite','Joshua Tree','Glacier'];
 const badgesWrap=document.getElementById('parksBadges');
 if(badgesWrap){
   allParks.forEach(n=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=n; badgesWrap.appendChild(b); });
