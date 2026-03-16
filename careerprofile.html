@@ -5,118 +5,398 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Internal • Jacob Rubis — Career Profile</title>
 <meta name="description" content="Internal portfolio for career development at ServiceNow: enablement impact, AI projects, and professional growth." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0e3a4f; --bg2:#0b2f43;
-  --panel:#0f415a; --panel2:#0e3a52;
-  --muted:#bed5e4; --text:#f1fbff;
-  --brand:#79f2a6; --brand-2:#8fd8ff; --border:#155674;
-  --radius:20px; --shadow:0 24px 60px rgba(0,0,0,.35); --max:1200px;
+/* ════════════════════════════════════════════
+   SERVICENOW BRAND DESIGN SYSTEM
+   ════════════════════════════════════════════ */
+:root {
+  /* Brand */
+  --primary:        #032D42;
+  --primary-mid:    #064663;
+  --green:          #63DF4E;
+  --green-safe:     #4CB83A;
+
+  /* Text */
+  --text-1:         #1E293B;
+  --text-2:         #475569;
+  --text-muted:     #94A3B8;
+
+  /* Surfaces */
+  --surface-white:  #FFFFFF;
+  --surface-light:  #F8FAFC;
+  --page-bg:        #F1F5F9;
+
+  /* Borders */
+  --border-light:   #E2E8F0;
+  --border-mid:     #CBD5E1;
+
+  /* Shadows */
+  --shadow-subtle:  0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow-md:      0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg:      0 10px 15px -3px rgba(0,0,0,0.1);
+
+  /* Radius */
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   16px;
+  --r-pill: 20px;
+
+  --max: 1200px;
+  --font: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; color:var(--text);
-  font:16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  background:
-    radial-gradient(1200px 600px at 85% -10%, rgba(141,212,255,.18), transparent 60%),
-    radial-gradient(900px 500px at -10% 10%, rgba(124,242,155,.14), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
-  background-size:200% 200%; animation:bgmove 24s linear infinite;
-  overflow-x:hidden;
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-1);
+  background: var(--page-bg);
+  -webkit-font-smoothing: antialiased;
 }
-@keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+a { color: var(--green-safe); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { display: block; max-width: 100%; }
 
-/* Layout */
-.wrap{max-width:var(--max); margin:0 auto; padding:24px}
-a{color:var(--brand); text-decoration:none}
+/* ── Layout ── */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 24px; }
 
-/* Header */
-header{position:sticky; top:0; z-index:60; border-bottom:1px solid var(--border);
-  background:linear-gradient(to bottom, rgba(16,60,82,.92), rgba(16,60,82,.55)); backdrop-filter:saturate(140%) blur(10px)}
-.nav{display:flex; align-items:center; justify-content:space-between; gap:16px; max-width:var(--max); margin:0 auto; padding:12px 24px}
-.nav a{padding:10px 12px; border-radius:12px; color:var(--text); transition:transform .18s ease, background .18s ease}
-.nav a:hover{transform:translateY(-2px); background:rgba(255,255,255,.08)}
-.pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(124,242,155,.14); color:#042c1b; font-weight:800}
-.progress{height:3px; background:linear-gradient(90deg,var(--brand),var(--brand-2)); transform-origin:0 50%; transform:scaleX(0)}
-
-/* Cards & hero */
-.card{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
-.pad{padding:24px}
-.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:stretch; margin-top:22px}
-@media (max-width:980px){.hero{grid-template-columns:1fr}}
-
-h1{font-size:48px; line-height:1.1; margin:6px 0 10px}
-h2{font-size:26px; margin:0 0 8px}
-.muted{color:var(--muted)}
-.small{font-size:12px; color:var(--muted)}
-.badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); padding:6px 10px; border:1px solid var(--border); border-radius:999px}
-
-/* Animated banners + reveals */
-.section{position:relative; overflow:hidden; margin-top:28px}
-.banner{position:absolute; left:0; right:0; height:130px; top:-34px; border-radius:28px; opacity:0;
-  background:conic-gradient(from 180deg at 10% 50%, rgba(124,242,155,.16), rgba(141,212,255,.16), rgba(124,242,155,.16));
-  transform:translateY(60px) scale(.97) skewX(-6deg); will-change:transform,opacity}
-.section.show .banner{opacity:.95}
-.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease}
-.reveal.show{opacity:1; transform:translateY(0)}
-.list{margin:10px 0 0 0; padding-left:18px; list-style:disc}
-.list li{opacity:0; transform:translateY(10px)}
-.reveal.show .list li{animation:rise .55s ease forwards}
-.reveal.show .list li:nth-child(1){animation-delay:.05s}
-.reveal.show .list li:nth-child(2){animation-delay:.12s}
-.reveal.show .list li:nth-child(3){animation-delay:.19s}
-.reveal.show .list li:nth-child(4){animation-delay:.26s}
-.reveal.show .list li:nth-child(5){animation-delay:.33s}
-@keyframes rise{to{opacity:1; transform:translateY(0)}}
-
-/* Tiles / projects */
-.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-@media (max-width:980px){.grid{grid-template-columns:1fr}}
-.tile{position:relative; padding:18px; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.05); transition:transform .18s ease, box-shadow .18s ease}
-.tile:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.tile:before{content:""; position:absolute; inset:auto -30% -40% auto; width:160px; height:160px; background:radial-gradient(closest-side, rgba(124,242,155,.18), transparent 70%)}
-.badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
-.badges span{font-size:12px; color:var(--muted); padding:6px 10px; border:1px solid var(--border); border-radius:999px}
-
-/* KPIs */
-.kpis{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:10px}
-.kpi{padding:16px; border:1px solid var(--border); border-radius:14px; text-align:center; background:rgba(255,255,255,.05)}
-.kpi strong{font-size:32px; display:block}
-
-/* Star */
-.star{position:absolute; right:16px; top:16px; width:64px; height:64px; opacity:.7; filter:drop-shadow(0 10px 20px rgba(0,0,0,.25))}
-.star svg{width:100%; height:100%; animation:float 6s ease-in-out infinite}
-@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-
-/* Particles + spotlight */
-canvas.bg{position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.55}
-.spotlight{position:fixed; inset:0; pointer-events:none; z-index:1; background:radial-gradient(200px 200px at var(--mx,60%) var(--my,20%), rgba(255,255,255,.10), transparent 60%)}
-
-/* Certificate image */
-.cert-img{max-width:100%; height:auto; border-radius:12px; border:1px solid var(--border); margin-top:12px; box-shadow:0 12px 30px rgba(0,0,0,.4)}
-
-/* Utilities */
-.hr{height:1px; background:var(--border); margin:12px 0}
-footer{color:var(--muted); text-align:center; padding:40px 0}
-
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important; transition:none!important}
+/* ════════════════════════════════════════════
+   HEADER BAR
+   ════════════════════════════════════════════ */
+header {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--primary);
+  box-shadow: var(--shadow-lg);
 }
+.nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  max-width: var(--max); margin: 0 auto; padding: 16px 32px;
+}
+.brand-label {
+  font-size: 13px; font-weight: 700; color: var(--green);
+  letter-spacing: 0.04em;
+}
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  padding: 6px 14px; border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; }
+.home-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 600;
+  background: var(--green); color: var(--primary);
+  transition: filter 0.15s;
+}
+.home-btn:hover { filter: brightness(1.08); text-decoration: none; }
+.progress {
+  height: 3px; background: var(--green);
+  transform-origin: 0 50%; transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
+
+/* ════════════════════════════════════════════
+   CARD — universal container
+   ════════════════════════════════════════════ */
+.card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  padding: 24px;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card-accent { border-top: 3px solid var(--green); }
+.card-highlight { border: 2px solid var(--green); }
+
+/* ════════════════════════════════════════════
+   HERO BANNER
+   gradient dark panel, white text
+   ════════════════════════════════════════════ */
+.hero-banner {
+  background: linear-gradient(135deg, #032D42 0%, #064663 100%);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(99,223,78,0.3);
+}
+.hero-banner::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 95% -10%, rgba(99,223,78,0.12), transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.4fr 0.8fr; gap: 24px;
+  align-items: stretch; margin-top: 24px;
+}
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+/* Role badge inside hero */
+.role-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 12px; border-radius: var(--r-pill);
+  background: rgba(99,223,78,0.12); border: 1px solid rgba(99,223,78,0.35);
+  font-size: 12px; font-weight: 700; color: var(--green);
+  letter-spacing: 0.04em; margin-bottom: 16px;
+}
+.role-badge .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0;
+}
+
+/* Hero h1 */
+h1 {
+  font-size: 38px; font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.02em; color: #fff; margin-bottom: 12px;
+}
+h1 .name { color: var(--green); }
+.hero-sub { font-size: 14px; color: rgba(255,255,255,0.7); max-width: 500px; margin-bottom: 24px; }
+
+/* Star icon */
+.star-icon { position: absolute; right: 24px; top: 24px; width: 48px; height: 48px; opacity: 0.8; z-index: 1; }
+.star-icon svg { width: 100%; height: 100%; animation: float 7s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(8deg); } }
+
+/* KPI tiles inside banner */
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kpi {
+  padding: 16px; border-radius: var(--r-md);
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  text-align: center;
+}
+.kpi strong { font-size: 32px; font-weight: 800; display: block; color: var(--green); letter-spacing: -0.02em; }
+.kpi span { font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+/* ════════════════════════════════════════════
+   SUMMARY PANEL (right of hero)
+   ════════════════════════════════════════════ */
+.summary-panel { display: flex; flex-direction: column; height: 100%; }
+.summary-panel h2 {
+  font-size: 16px; font-weight: 700; color: var(--primary);
+  padding-bottom: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 16px;
+}
+.sum-list { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.sum-list li {
+  font-size: 14px; line-height: 1.6; color: var(--text-1);
+  padding-left: 20px; position: relative;
+}
+.sum-list li::before {
+  content: "▸"; position: absolute; left: 0; top: 0;
+  color: var(--green-safe); font-size: 12px;
+}
+.sum-list li strong { color: var(--primary); font-weight: 700; }
+.hr { height: 1px; background: var(--border-light); margin: 16px 0; }
+.ts { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+
+/* ════════════════════════════════════════════
+   SECTION REVEAL ANIMATION
+   ════════════════════════════════════════════ */
+.section {
+  margin-top: 24px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section.visible { opacity: 1; transform: none; }
+
+/* ════════════════════════════════════════════
+   SECTION HEADING
+   ════════════════════════════════════════════ */
+.sec-title {
+  font-size: 20px; font-weight: 700; color: var(--primary);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+}
+.sec-title::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
+.sec-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(3,45,66,0.08); color: var(--primary);
+  border: 1px solid rgba(3,45,66,0.2);
+}
+
+/* ════════════════════════════════════════════
+   PROJECT GRID
+   ════════════════════════════════════════════ */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.proj-card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  position: relative; overflow: hidden;
+}
+.proj-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-mid);
+  transform: translateY(-2px);
+}
+.proj-card.featured { border-top: 3px solid var(--green); }
+.proj-card strong { font-size: 14px; font-weight: 700; color: var(--primary); line-height: 1.35; }
+.proj-card p { font-size: 13px; color: var(--text-2); line-height: 1.5; flex: 1; }
+
+/* Small CTA button per spec */
+.proj-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  align-self: flex-start; margin-top: 8px;
+  padding: 4px 12px; border-radius: var(--r-sm);
+  font-size: 12px; font-weight: 600; color: var(--primary);
+  border: 1px solid var(--border-mid);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  background: transparent;
+}
+.proj-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); text-decoration: none; }
+
+/* ════════════════════════════════════════════
+   EXPANDABLE TILES (Speaking / Dev)
+   ════════════════════════════════════════════ */
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.exp-tile {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  padding: 20px;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.exp-tile:hover { box-shadow: var(--shadow-md); border-color: var(--border-mid); }
+.exp-tile[open] { border-left: 3px solid var(--green); }
+.exp-tile summary { list-style: none; outline: none; }
+.exp-tile summary::-webkit-details-marker { display: none; }
+.tile-head strong {
+  font-size: 14px; font-weight: 700; display: block;
+  color: var(--primary); margin-bottom: 4px;
+}
+.tile-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--green-safe); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px;
+}
+.arrow { display: inline-block; transition: transform 0.2s; }
+.exp-tile[open] .arrow { transform: rotate(90deg); }
+.exp-body { padding-top: 12px; }
+
+/* Bullet list per spec */
+.exp-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-list li {
+  font-size: 14px; line-height: 1.6; color: var(--text-2);
+  padding-left: 20px; position: relative;
+}
+.exp-list li::before {
+  content: "▸"; position: absolute; left: 0; top: 0;
+  color: var(--green-safe); font-size: 12px;
+}
+
+/* ════════════════════════════════════════════
+   NUMBERED TILES (Why Me / Vision)
+   ════════════════════════════════════════════ */
+.num-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.num-tile {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  padding: 24px;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.num-tile:hover { box-shadow: var(--shadow-md); border-color: var(--border-mid); }
+.num-tile.open { border-top: 3px solid var(--green); }
+.num-inner { display: flex; align-items: center; gap: 16px; }
+.num-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #032D42 0%, #064663 100%);
+  color: var(--green); font-weight: 800; font-size: 16px;
+  box-shadow: var(--shadow-md);
+}
+.num-inner-text { flex: 1; }
+.num-tile h3 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.num-read { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--green-safe); }
+.num-body {
+  padding-top: 16px; margin-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ════════════════════════════════════════════
+   CERT IMAGE
+   ════════════════════════════════════════════ */
+.cert-img {
+  max-width: 100%; height: auto; border-radius: var(--r-md);
+  border: 1px solid var(--border-light); margin-top: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════ */
+footer {
+  text-align: center; padding: 32px 0 24px;
+  border-top: 1px solid var(--border-light);
+  margin-top: 8px; font-size: 12px; color: var(--text-muted);
+}
+
+/* ════════════════════════════════════════════
+   BACK TO TOP
+   ════════════════════════════════════════════ */
+#up {
+  position: fixed; right: 20px; bottom: 20px; z-index: 70;
+  border: 0; border-radius: var(--r-md);
+  padding: 10px 16px; font-weight: 700; font-size: 12px;
+  cursor: pointer; display: none;
+  background: var(--primary); color: #fff;
+  box-shadow: var(--shadow-lg);
+  transition: background 0.15s;
+}
+#up:hover { background: var(--primary-mid); }
+
+header, main, footer, #up { position: relative; z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
-<canvas id="particles" class="bg"></canvas>
-<div class="spotlight" aria-hidden="true"></div>
 
 <header>
   <div class="nav">
-    <div style="display:flex; align-items:center; gap:12px;">
-      <div class="pill">Internal • ServiceNow • <span id="updated"></span></div>
-      <a href="index.html" style="font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2)); padding:8px 12px; border-radius:12px;">← Home</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span class="brand-label">Internal · ServiceNow</span>
+      <a href="index.html" class="home-btn">← Home</a>
     </div>
-    <nav>
+    <nav class="nav-links">
       <a href="#projects">AI Projects</a>
+      <a href="#enablement">Speaking</a>
       <a href="#whyme">Why Me</a>
       <a href="#vision">Vision</a>
     </nav>
@@ -125,419 +405,399 @@ footer{color:var(--muted); text-align:center; padding:40px 0}
 </header>
 
 <main class="wrap">
-  <!-- HERO -->
-  <section class="hero section show" id="top">
-    <div class="banner parallax" aria-hidden="true"></div>
-    <div class="card pad tilt" style="position:relative; overflow:hidden">
-      <div class="star" aria-hidden="true">
-        <svg viewBox="0 0 100 100" fill="url(#g)">
+
+  <!-- ── HERO ── -->
+  <div class="hero-grid section" id="top">
+    <div class="hero-banner">
+      <div class="star-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#79f2a6"/>
-              <stop offset="100%" stop-color="#8fd8ff"/>
+            <linearGradient id="sg" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#63DF4E"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.5"/>
             </linearGradient>
           </defs>
-          <path d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z"/>
+          <path d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z" fill="url(#sg)"/>
         </svg>
       </div>
-      <div class="badge">Jacob Rubis — SDR @ ServiceNow</div>
-      <h1>Jacob Rubis · Team player. Builder. Always sharing success.</h1>
-      <p class="muted" id="intro">
-        I identify simpler ways of working and turn them into scalable tools that improve team performance. This page captures contributions and career development.
-      </p>
+      <div class="role-badge"><span class="dot"></span>Jacob Rubis — BDR @ ServiceNow</div>
+      <h1><span class="name">Jacob Rubis</span> · Team player. Builder. Always sharing success.</h1>
+      <p class="hero-sub">I identify simpler ways of working and turn them into scalable tools that improve team performance. This page captures contributions and career development.</p>
       <div class="kpis">
-        <div class="kpi"><strong data-count="30" data-plus="+">0</strong><span class="small">reps using shared assets</span></div>
-        <div class="kpi"><strong data-count="8" data-plus="+">0</strong><span class="small">AI tools built </span></div>
+        <div class="kpi">
+          <strong data-count="40" data-plus="+">0</strong>
+          <span>reps using shared assets</span>
+        </div>
+        <div class="kpi">
+          <strong data-count="10" data-plus="+">0</strong>
+          <span>AI tools built</span>
+        </div>
       </div>
     </div>
 
-    <aside class="card pad reveal" id="tldr">
+    <div class="card summary-panel">
       <h2>Career Profile — Summary</h2>
-      <ul class="list">
-        <li>Proven across <strong>Mid-Market, Commercial, and Enterprise</strong>; I've covered all 3 segments.</li>
-        <li>Last 4 quarters: <strong>among the highest attainers</strong> on my team.</li>
-        <li>Last 3 quarters: <strong>exceeded quota</strong> in consecutive quarters.</li>
-        <li>Process-first; enablement impact beyond my role—tools others use daily.</li>
+      <ul class="sum-list">
+        <li>Proven across <strong>Mid-Market, Commercial, and Enterprise</strong> — covered all 3 segments.</li>
+        <li>Last 5 quarters: <strong>among the highest attainers</strong> on my team.</li>
+        <li>Last 4 quarters: <strong>exceeded quota</strong> in consecutive quarters.</li>
+        <li>Process-first — enablement impact beyond my role, tools others use daily.</li>
         <li>Coachable, curious, and quick to implement feedback to improve outcomes.</li>
         <li>I aim to improve the team's success rate, not just my own.</li>
       </ul>
       <div class="hr"></div>
-      <div class="small">Last updated <span id="updatedFoot"></span> • Internal only</div>
-    </aside>
-  </section>
+      <span class="ts">Last updated <span id="updatedFoot"></span> · Internal only</span>
+    </div>
+  </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section reveal card pad">
-    <div class="banner parallax"></div>
-    <h2>AI Projects</h2>
+  <!-- ── AI PROJECTS ── -->
+  <section id="projects" class="section card card-accent">
+    <div class="sec-title"><span class="sec-tag">Tools</span> AI Projects</div>
+    <div class="proj-grid">
 
-    <style>
-      #projects .grid { grid-template-columns: repeat(4, 1fr); }
-      @media (max-width: 980px){ #projects .grid { grid-template-columns: 1fr; } }
-    </style>
-
-    <div class="grid">
-      <div class="tile" style="display:flex; flex-direction:column;">
+      <div class="proj-card">
         <strong>Account Planning</strong>
-        <p class="muted">Strategic account planning following the 9 box style.</p>
-        <a href="https://claude.ai/project/019ad278-243c-7579-b36f-6337cc70bad6" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
+        <p>Strategic account planning following the 9-box style.</p>
+        <a href="https://claude.ai/project/019ad278-243c-7579-b36f-6337cc70bad6" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
       </div>
 
-      <div class="tile" style="display:flex; flex-direction:column;">
-        <strong>Intro Call Brief</strong>
-        <p class="muted">Standardized briefing template for intro calls with key context and prep.</p>
-        <a href="https://claude.ai/project/019aeb3c-f9d2-7779-98f6-646f943048b3" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
+      <div class="proj-card">
+        <strong>Peer Customer Analysis</strong>
+        <p>Evaluates target companies against ServiceNow customers in the same industry — creates a credible story you can tell prospects.</p>
+        <a href="https://claude.ai/project/019cd5ab-9863-7187-b188-3de5bb41fa77" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
       </div>
 
-      <div class="tile" style="display:flex; flex-direction:column;">
-        <strong>Post Disco Call Follow Up</strong>
-        <p class="muted">Converts discovery notes into structured SPICED summaries and client-ready follow-ups.</p>
-        <a href="https://claude.ai/project/019ac0f7-dcf8-7310-83fd-fe0d855e538d" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
+      <div class="proj-card">
+        <strong>Big Bet Mission Control</strong>
+        <p>Shared workspace for the account team to track all activity and updates for big bet accounts — one link, live updates.</p>
+        <a href="https://claude.ai/project/019cf42e-eba7-70cd-957b-1ed7028d7054" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
       </div>
 
-      <div class="tile" style="display:flex; flex-direction:column;">
-        <strong>iSDR One Off Outreach GPT</strong>
-        <p class="muted">Creates tailored, credible emails and talk tracks fast from verifiable inputs.</p>
-        <a href="https://chatgpt.com/g/g-68c10d3663408191a7fad943a14be8e8-isdr-one-off-outreach" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
-      </div>
-
-      <div class="tile" style="display:flex; flex-direction:column;">
-        <strong>Pre Call Briefing</strong>
-        <p class="muted">Turns scattered research and notes into a standardized briefing with key players, context, pains, and goals to save prep time and boost team alignment.</p>
-        <a href="https://chatgpt.com/g/g-689e3bda5b04819192404137f2355b7d-pre-call-briefing" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
-      </div>
-
-      
-      <div class="tile" style="display:flex; flex-direction:column;">
+      <div class="proj-card">
         <strong>Roleplay Trainer GPT</strong>
-        <p class="muted">Mock discovery and objection handling with positive feedback from an ITOM SC; actively used by one commercial outbound team.</p>
-        <a href="https://chatgpt.com/g/g-68125d8938688191b90c1a4fe796cf90-roleplay-trainer" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
+        <p>Mock discovery and objection handling with positive feedback; actively used by one commercial outbound team.</p>
+        <a href="https://chatgpt.com/g/g-68125d8938688191b90c1a4fe796cf90-roleplay-trainer" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
       </div>
 
-      <div class="tile" style="display:flex; flex-direction:column;">
+      <div class="proj-card">
+        <strong>Intro Call Brief</strong>
+        <p>Standardized briefing template for intro calls with key context and prep.</p>
+        <a href="https://claude.ai/project/019aeb3c-f9d2-7779-98f6-646f943048b3" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
+      </div>
+
+      <div class="proj-card">
+        <strong>Post Disco Call Follow Up</strong>
+        <p>Converts discovery notes into structured SPICED summaries and client-ready follow-ups.</p>
+        <a href="https://claude.ai/project/019ac0f7-dcf8-7310-83fd-fe0d855e538d" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
+      </div>
+
+      <div class="proj-card">
+        <strong>Inbound Lead Outreach GPT</strong>
+        <p>Creates tailored, credible emails and talk tracks fast from verifiable inputs.</p>
+        <a href="https://chatgpt.com/g/g-68c10d3663408191a7fad943a14be8e8-isdr-one-off-outreach" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
+      </div>
+
+      <div class="proj-card">
+        <strong>Pre Call Briefing</strong>
+        <p>Turns scattered research and notes into a standardized briefing with key players, context, pains, and goals.</p>
+        <a href="https://chatgpt.com/g/g-689e3bda5b04819192404137f2355b7d-pre-call-briefing" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
+      </div>
+
+      <div class="proj-card">
         <strong>Industry Intel GPT</strong>
-        <p class="muted">Generates a concise sales brief to drive outreach topics and support account plan building.</p>
-        <a href="https://chatgpt.com/g/g-684b5838c454819182b4c33794dcf594-industry-intel" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
+        <p>Generates a concise sales brief to drive outreach topics and support account plan building.</p>
+        <a href="https://chatgpt.com/g/g-684b5838c454819182b4c33794dcf594-industry-intel" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
       </div>
 
-      <div class="tile" style="display:flex; flex-direction:column;">
+      <div class="proj-card">
         <strong>Pipeline Revival GPT</strong>
-        <p class="muted">Helps SDRs re-engage stalled opportunities with personalized, resource-led outreach.</p>
-        <a href="https://chatgpt.com/g/g-68f2df8497dc8191b5d291aa50d02ab9-pipeline-revival" target="_blank" rel="noopener"
-           style="display:inline-block; align-self:center; margin-top:auto; padding:8px 12px; border-radius:10px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21">
-          Try Here!
-        </a>
-      </div>
-
-      <div class="tile" style="display:flex; flex-direction:column;">
-        <strong>Talk Tracks Library</strong>
-        <p class="muted">Short scripts per business area to help new reps ramp fast.</p>
-        <div class="small muted" style="margin-top:auto; align-self:center;">OneNote resource</div>
+        <p>Helps SDRs re-engage stalled opportunities with personalized, resource-led outreach.</p>
+        <a href="https://chatgpt.com/g/g-68f2df8497dc8191b5d291aa50d02ab9-pipeline-revival" target="_blank" rel="noopener" class="proj-btn">Try Here ↗</a>
       </div>
 
     </div>
   </section>
 
-<!-- SPEAKING & ENABLEMENT HIGHLIGHTS -->
-<section id="enablement" class="section reveal card pad" style="border:1px solid var(--brand)">
-  <div class="banner parallax" aria-hidden="true"></div>
-  <h2>Speaking &amp; Enablement Highlights</h2>
+  <!-- ── SPEAKING & ENABLEMENT ── -->
+  <section id="enablement" class="section card card-accent">
+    <div class="sec-title"><span class="sec-tag">Impact</span> Speaking &amp; Enablement Highlights</div>
+    <div class="exp-grid">
 
-  <!-- Local layout for this section -->
-  <style>
-    #enablement .grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    @media (max-width: 980px){ #enablement .grid { grid-template-columns: 1fr; } }
-    #enablement details summary { cursor: pointer; }
-  </style>
-
-  <div class="grid">
-    <!-- Talk 1 -->
-    <details class="tile">
-      <summary>
-        <strong>AI Listening Tour</strong><br />
-        <span class="small muted">June 2025</span><br />
-        <span class="small muted">Read more</span>
-      </summary>
-      <p class="muted" style="margin-top:8px;">
-        Collaborated with leadership to assist in the AI Listening Tour.
-      </p>
-      <ul class="list">
-        <li> Collaborated with leaders to design supporting materials — including data sheets, slides, and demos — for Kristen McCormack's presentation to Chief Digital Information Officer Kellie Romack as part of the AI Listening Tour, showcasing innovation and practical AI enablement.
-      </ul>
-    </details>
-
-       <!-- Talk 1.5 -->
-    <details class="tile">
-      <summary>
-        <strong>AI Native: Using AI Responsibly</strong><br />
-        <span class="small muted">Oct 7 — Global GSD</span><br />
-        <span class="small muted">Read more</span>
-      </summary>
-      <p class="muted" style="margin-top:8px;">
-        Presented to the Global GSD organization on safe and responsible AI use.
-      </p>
-      <ul class="list">
-        <li> Shared real examples of how SDRs can use ChatGPT to accelerate research, writing, and outreach while protecting confidential data. Explained the difference between public and internal information, demonstrated how to adjust ChatGPT's data controls, and outlined risks like prompt injection and Shadow AI.
-      </ul>
-    </details>
-
-    <!-- Talk 2 -->
-    <details class="tile">
-      <summary>
-        <strong>ESA AI Summit </strong><br />
-        <span class="small muted">Oct 15 — Boston • Led by Chris Sousa (Director of ESA)</span><br />
-        <span class="small muted">Read more</span>
-      </summary>
-      <p class="muted" style="margin-top:8px;">
-        45-minute session alongside Will Doerr showcasing the GPT workflows I've built and inspiring ESAs to design
-        their own custom automations aligned to day-to-day work.
-      </p>
-      <ul class="list">
-        <li>Live demos of sales-workflow GPTs and how they're assembled.</li>
-        <li>Frameworks for safe, scalable rollout to field teams.</li>
-        <li>Practical prompts &amp; templates they can adapt immediately.</li>
-      </ul>
-    </details>
-
-    <!-- Talk 3 -->
-    <details class="tile">
-      <summary>
-        <strong>GSD: Pipeline Progression</strong><br />
-        <span class="small muted">Oct 21 — Global GSD</span><br />
-        <span class="small muted">Read more</span>
-      </summary>
-      <p class="muted" style="margin-top:8px;">
-        Presented a Pipeline Progression framework for SDRs to re-engage and move stalled
-        opportunities forward, plus a custom tool that operationalizes the approach.
-      </p>
-      <ul class="list">
-        <li>Light, resource-led, empathetic multi-touch sequences.</li>
-        <li>Consistency + measurement to spot momentum early.</li>
-        <li>Clear criteria for next best action and handoffs.</li>
-      </ul>
-    </details>
-  </div>
-</section>
-
-<!-- ONGOING DEVELOPMENT -->
-<section id="development" class="section reveal card pad" style="border:1px solid var(--brand)">
-  <div class="banner parallax" aria-hidden="true"></div>
-  <h2>Professional Development</h2>
-
-  <details class="tile">
-    <summary>
-      <strong>MIT: Applied Agentic AI for Organizational Transformation</strong><br />
-      <span class="small muted">September 30 - November 25, 2025</span><br />
-      <span class="small muted">Read more</span>
-    </summary>
-    <p class="muted" style="margin-top:8px;">
-      Completed MIT's <em>Applied Agentic AI for Organizational Transformation</em> course (70 hours). Practical frameworks, examples, and real-world applications to elevate how our team uses AI to streamline workflows and drive measurable impact.
-    </p>
-    <img src="assets/MIT_cert-1.jpg" alt="MIT Applied Agentic AI Certification" class="cert-img" loading="lazy">
-  </details>
-</section>
-
-  
-  <!-- WHY ME -->
-  <section id="whyme" class="section reveal card pad" style="border:1px solid var(--brand)">
-    <div class="banner parallax"></div>
-    <h2>Why Me</h2>
-
-    <div class="grid">
-      <div class="tile">
-        <div role="button" tabindex="0" aria-controls="why1" aria-expanded="false" style="text-align:center; cursor:pointer"
-             onclick="const c=this.nextElementSibling; const o=(c.style.display!=='block'); c.style.display=o?'block':'none'; this.setAttribute('aria-expanded',o)">
-          <span class="badge" style="display:inline-flex;justify-content:center;align-items:center;width:72px;height:72px;border-radius:999px;font-weight:800;font-size:24px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;border-color:transparent;">01</span>
-          <div style="font-size:22px;font-weight:800;margin-top:10px">Proven Performance</div>
-          <div class="small muted" style="margin-top:6px">Read more</div>
+      <details class="exp-tile">
+        <summary>
+          <div class="tile-head">
+            <strong>AI Listening Tour</strong>
+            <div class="ts">June 2025</div>
+            <div class="tile-toggle">Read more <span class="arrow">›</span></div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <ul class="exp-list">
+            <li>Collaborated with leaders to design supporting materials — including data sheets, slides, and demos — for Kristen McCormack's presentation to Chief Digital Information Officer Kellie Romack, showcasing innovation and practical AI enablement.</li>
+          </ul>
         </div>
-        <div id="why1" style="display:none">
-          <ul class="list">
-            <li>Consistently strong results across Mid Market, Commercial, and Enterprise.</li>
-            <li>Among the highest attainers for the last four quarters.</li>
-            <li>Exceeded quota for the last three consecutive quarters.</li>
-            <li>Outcome driven: other reps have booked multiple meetings using my email templates and tools.</li>
+      </details>
+
+      <details class="exp-tile">
+        <summary>
+          <div class="tile-head">
+            <strong>AI Native: Using AI Responsibly</strong>
+            <div class="ts">Oct 7 — Global GSD</div>
+            <div class="tile-toggle">Read more <span class="arrow">›</span></div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <ul class="exp-list">
+            <li>Shared real examples of how SDRs can use ChatGPT to accelerate research, writing, and outreach while protecting confidential data.</li>
+            <li>Explained the difference between public and internal information, demonstrated how to adjust ChatGPT's data controls, and outlined risks like prompt injection and Shadow AI.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="exp-tile">
+        <summary>
+          <div class="tile-head">
+            <strong>ESA AI Summit</strong>
+            <div class="ts">Oct 15 — Boston · Led by Chris Sousa (Director of ESA)</div>
+            <div class="tile-toggle">Read more <span class="arrow">›</span></div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <ul class="exp-list">
+            <li>45-minute session alongside Will Doerr showcasing GPT workflows I've built and inspiring ESAs to design their own custom automations aligned to day-to-day work.</li>
+            <li>Live demos of sales-workflow GPTs and how they're assembled.</li>
+            <li>Practical prompts and templates they can adapt immediately.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="exp-tile">
+        <summary>
+          <div class="tile-head">
+            <strong>GSD: Pipeline Progression</strong>
+            <div class="ts">Oct 21 — Global GSD</div>
+            <div class="tile-toggle">Read more <span class="arrow">›</span></div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <ul class="exp-list">
+            <li>Presented a Pipeline Progression framework for SDRs to re-engage and move stalled opportunities forward, plus a custom tool that operationalizes the approach.</li>
+            <li>Light, resource-led, empathetic multi-touch sequences with clear criteria for next best action and handoffs.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="exp-tile">
+        <summary>
+          <div class="tile-head">
+            <strong>Dave Barto: Commercial Central All Hands</strong>
+            <div class="ts">February 2026 — Commercial Central</div>
+            <div class="tile-toggle">Read more <span class="arrow">›</span></div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <ul class="exp-list">
+            <li>Presented to the Commercial Central organization on a BDR-built account planning workflow — built originally in ChatGPT, then migrated to Claude to unlock integrations with Dynamics, Snowflake, and the SSC that weren't possible before.</li>
+            <li>Showed how the team can generate comprehensive, research-backed account plans in under 20 minutes tailored to ServiceNow value — all in one HTML deliverable, with no manual research required.</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+  <section id="development" class="section card card-accent">
+    <div class="sec-title"><span class="sec-tag">Credentials</span> Professional Development</div>
+    <details class="exp-tile">
+      <summary>
+        <div class="tile-head">
+          <strong>MIT: Applied Agentic AI for Organizational Transformation</strong>
+          <div class="ts">September 30 – November 25, 2025</div>
+          <div class="tile-toggle">Read more <span class="arrow">›</span></div>
+        </div>
+      </summary>
+      <div class="exp-body">
+        <p style="font-size:14px;color:var(--text-2);margin-bottom:10px">
+          Completed MIT's <em>Applied Agentic AI for Organizational Transformation</em> course (70 hours). Practical frameworks and real-world applications to elevate how teams use AI to streamline workflows and drive measurable impact.
+        </p>
+        <img src="assets/MIT_cert-1.jpg" alt="MIT Applied Agentic AI Certification" class="cert-img" loading="lazy">
+      </div>
+    </details>
+  </section>
+
+  <!-- ── WHY ME ── -->
+  <section id="whyme" class="section card card-accent">
+    <div class="sec-title"><span class="sec-tag">Value</span> Why Me</div>
+    <div class="num-grid">
+
+      <div class="num-tile" onclick="toggleNum(this)">
+        <div class="num-inner">
+          <div class="num-badge">01</div>
+          <div class="num-inner-text">
+            <h3>Proven Performance</h3>
+            <div class="num-read">Read more ›</div>
+          </div>
+        </div>
+        <div class="num-body" style="display:none">
+          <ul class="exp-list">
+            <li>Consistently strong results across Mid-Market, Commercial, and Enterprise.</li>
+            <li>Among the highest attainers for the last five quarters.</li>
+            <li>Exceeded quota for the last four consecutive quarters.</li>
+            <li>Other reps have booked multiple meetings using my email templates and tools.</li>
           </ul>
         </div>
       </div>
 
-      <div class="tile">
-        <div role="button" tabindex="0" aria-controls="why2" aria-expanded="false" style="text-align:center; cursor:pointer"
-             onclick="const c=this.nextElementSibling; const o=(c.style.display!=='block'); c.style.display=o?'block':'none'; this.setAttribute('aria-expanded',o)">
-          <span class="badge" style="display:inline-flex;justify-content:center;align-items:center;width:72px;height:72px;border-radius:999px;font-weight:800;font-size:24px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;border-color:transparent;">02</span>
-          <div style="font-size:22px;font-weight:800;margin-top:10px">Team Impact and Enablement</div>
-          <div class="small muted" style="margin-top:6px">Read more</div>
+      <div class="num-tile" onclick="toggleNum(this)">
+        <div class="num-inner">
+          <div class="num-badge">02</div>
+          <div class="num-inner-text">
+            <h3>Team Impact &amp; Enablement</h3>
+            <div class="num-read">Read more ›</div>
+          </div>
         </div>
-        <div id="why2" style="display:none">
-          <ul class="list">
-            <li>Go to for AI questions, providing quick, actionable help that improves win rates.</li>
+        <div class="num-body" style="display:none">
+          <ul class="exp-list">
+            <li>Go-to for AI questions — providing quick, actionable help that improves win rates.</li>
             <li>Build enablement through talk tracks, repeatable workflows, and AI tools adopted by peers.</li>
             <li>Frequently tagged into AI-focused presentations and team enablement discussions.</li>
           </ul>
         </div>
       </div>
 
-      <div class="tile">
-        <div role="button" tabindex="0" aria-controls="why3" aria-expanded="false" style="text-align:center; cursor:pointer"
-             onclick="const c=this.nextElementSibling; const o=(c.style.display!=='block'); c.style.display=o?'block':'none'; this.setAttribute('aria-expanded',o)">
-          <span class="badge" style="display:inline-flex;justify-content:center;align-items:center;width:72px;height:72px;border-radius:999px;font-weight:800;font-size:24px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;border-color:transparent;">03</span>
-          <div style="font-size:22px;font-weight:800;margin-top:10px">Mindset and Collaboration</div>
-          <div class="small muted" style="margin-top:6px">Read more</div>
+      <div class="num-tile" onclick="toggleNum(this)">
+        <div class="num-inner">
+          <div class="num-badge">03</div>
+          <div class="num-inner-text">
+            <h3>Mindset &amp; Collaboration</h3>
+            <div class="num-read">Read more ›</div>
+          </div>
         </div>
-        <div id="why3" style="display:none">
-          <ul class="list">
+        <div class="num-body" style="display:none">
+          <ul class="exp-list">
             <li>Regularly join pitches with clear, concise storytelling.</li>
             <li>Coachable, curious, and focused on measurable improvements.</li>
             <li>Known for strong collaboration and communication that accelerates team performance.</li>
           </ul>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- FORWARD LOOKING VISION -->
-  <section id="vision" class="section reveal card pad" style="border:1px solid var(--brand)">
-    <div class="banner parallax"></div>
-    <h2>Forward Looking Vision</h2>
+  <!-- ── FORWARD-LOOKING VISION ── -->
+  <section id="vision" class="section card card-accent">
+    <div class="sec-title"><span class="sec-tag">Direction</span> Forward Looking Vision</div>
+    <div class="num-grid">
 
-    <div class="grid">
-      <div class="tile">
-        <div role="button" tabindex="0" aria-controls="vision1" aria-expanded="false" style="text-align:center; cursor:pointer"
-             onclick="const c=this.nextElementSibling; const o=(c.style.display!=='block'); c.style.display=o?'block':'none'; this.setAttribute('aria-expanded',o)">
-          <span class="badge" style="display:inline-flex;justify-content:center;align-items:center;width:72px;height:72px;border-radius:999px;font-weight:800;font-size:24px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;border-color:transparent;">01</span>
-          <div style="font-size:22px;font-weight:800;margin-top:10px">Areas of Interest</div>
-          <div class="small muted" style="margin-top:6px">Read more</div>
+      <div class="num-tile" onclick="toggleNum(this)">
+        <div class="num-inner">
+          <div class="num-badge">01</div>
+          <div class="num-inner-text">
+            <h3>Full-Cycle Sales</h3>
+            <div class="num-read">Read more ›</div>
+          </div>
         </div>
-        <div id="vision1" style="display:none">
-          <p class="muted" style="margin-top:8px;">
-            I'm focused on three areas where I can create the most impact:
-          </p>
-          <ul class="list">
-            <li>Full-cycle sales roles where I can own the entire customer journey and develop deeper selling capabilities</li>
-            <li>AI and innovation roles at the intersection of technology and go-to-market strategy</li>
-            <li>GTM Engineering at the intersection of technology, sales, marketing, and operations</li>
+        <div class="num-body" style="display:none">
+          <ul class="exp-list">
+            <li>Transition into a full-cycle AE role where I own the entire customer journey from sourcing through close.</li>
+            <li>Continue building enablement tools alongside core selling — the two reinforce each other.</li>
+            <li>Contribute to team success through both individual performance and scalable resources that help others win.</li>
           </ul>
         </div>
       </div>
 
-      <div class="tile">
-        <div role="button" tabindex="0" aria-controls="vision2" aria-expanded="false" style="text-align:center; cursor:pointer"
-             onclick="const c=this.nextElementSibling; const o=(c.style.display!=='block'); c.style.display=o?'block':'none'; this.setAttribute('aria-expanded',o)">
-          <span class="badge" style="display:inline-flex;justify-content:center;align-items:center;width:72px;height:72px;border-radius:999px;font-weight:800;font-size:24px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;border-color:transparent;">02</span>
-          <div style="font-size:22px;font-weight:800;margin-top:10px">End of 2026</div>
-          <div class="small muted" style="margin-top:6px">Read more</div>
+      <div class="num-tile" onclick="toggleNum(this)">
+        <div class="num-inner">
+          <div class="num-badge">02</div>
+          <div class="num-inner-text">
+            <h3>GTM Engineering</h3>
+            <div class="num-read">Read more ›</div>
+          </div>
         </div>
-        <div id="vision2" style="display:none">
-          <p class="muted" style="margin-top:8px;">
-            Transition into a full-cycle AE role where I can continue building enablement tools while developing core selling capabilities. I want to stay customer-facing and contribute to team success through both individual performance and scalable resources that help others win.
-          </p>
+        <div class="num-body" style="display:none">
+          <ul class="exp-list">
+            <li>Pursue a GTM Engineering or AI Sales Coach role at the intersection of sales, technology, and operations — not a three-year goal, an active interest.</li>
+            <li>Already building the proof of concept: custom tools in production, org-wide adoption, and a track record of translating AI into pipeline impact.</li>
+            <li>Goal is to scale what works for one rep into what works for hundreds.</li>
+          </ul>
         </div>
       </div>
 
-      <div class="tile">
-        <div role="button" tabindex="0" aria-controls="vision3" aria-expanded="false" style="text-align:center; cursor:pointer"
-             onclick="const c=this.nextElementSibling; const o=(c.style.display!=='block'); c.style.display=o?'block':'none'; this.setAttribute('aria-expanded',o)">
-          <span class="badge" style="display:inline-flex;justify-content:center;align-items:center;width:72px;height:72px;border-radius:999px;font-weight:800;font-size:24px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;border-color:transparent;">03</span>
-          <div style="font-size:22px;font-weight:800;margin-top:10px">Three Year Vision</div>
-          <div class="small muted" style="margin-top:6px">Read more</div>
+      <div class="num-tile" onclick="toggleNum(this)">
+        <div class="num-inner">
+          <div class="num-badge">03</div>
+          <div class="num-inner-text">
+            <h3>Long-Term Trajectory</h3>
+            <div class="num-read">Read more ›</div>
+          </div>
         </div>
-        <div id="vision3" style="display:none">
-          <p class="muted" style="margin-top:8px;">
-            Establish myself as a top-performing full-cycle seller while positioning for sales leadership opportunities. Continue building at the intersection of AI, automation, and go-to-market strategy. Potentially move into GTM Engineering or an innovation-focused role where I can scale enablement impact across the organization and help define how teams use AI to drive revenue.
-          </p>
+        <div class="num-body" style="display:none">
+          <ul class="exp-list">
+            <li>Establish myself as a top-performing operator and eventually move into sales leadership or a senior innovation role.</li>
+            <li>Continue building at the intersection of AI, automation, and go-to-market strategy — using real outcomes to earn the next opportunity, not just tenure.</li>
+            <li>However the path unfolds, the goal stays the same: improve the team's win rate, not just my own.</li>
+          </ul>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- NEW: Home button near footer -->
-  <section class="section card pad" style="text-align:center">
-    <div class="banner" aria-hidden="true"></div>
-    <a href="index.html" class="tile" style="padding:10px 14px; border-radius:12px; font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2))">← Back to Home</a>
-  </section>
+  <!-- Back home -->
+  <div class="section" style="text-align:center;padding:12px 0 8px">
+    <a href="index.html" class="home-btn" style="display:inline-flex">← Back to Home</a>
+  </div>
 
   <footer>
-    <p>© <span id="year"></span> Jacob Rubis • Internal use only</p>
+    <p>© <span id="year"></span> Jacob Rubis · Internal use only · ServiceNow Confidential</p>
   </footer>
+
 </main>
 
-<!-- Quick Nav / Up button -->
-<button id="up" title="Back to top" style="position:fixed;right:20px;bottom:20px;z-index:70;border:0;border-radius:14px;padding:10px 12px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#072e21;box-shadow:0 8px 22px rgba(0,0,0,.35);display:none">↑ Top</button>
+<button id="up" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
 
 <script>
-// Year + timestamps
-const d=new Date(); const ds=d.toLocaleString(undefined,{year:'numeric',month:'short',day:'2-digit'});
-document.getElementById('updated').textContent=ds; document.getElementById('updatedFoot').textContent=ds; document.getElementById('year').textContent=d.getFullYear();
+// Timestamps
+const d=new Date();
+const ds=d.toLocaleString(undefined,{year:'numeric',month:'short',day:'2-digit'});
+['updated','updatedFoot'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=ds; });
+document.getElementById('year').textContent=d.getFullYear();
 
-// Progress bar
-const progress=document.getElementById('progress');
-addEventListener('scroll',()=>{ const s=scrollY/(document.body.scrollHeight-innerHeight); progress.style.transform=`scaleX(${Math.max(0,Math.min(1,s))})`; });
+// Scroll progress
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const pct=scrollY/(document.body.scrollHeight-innerHeight);
+  prog.style.transform=`scaleX(${Math.min(1,Math.max(0,pct))})`;
+  document.getElementById('up').style.display=scrollY>600?'block':'none';
+});
 
-// Reveal on view
-const io=new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); }),{threshold:.16});
-document.querySelectorAll('.section, .reveal').forEach(el=>io.observe(el));
-
-// Parallax banners
-const banners=[...document.querySelectorAll('.banner.parallax')];
-function tick(){ const k= innerWidth>960? .38 : .26, vh=innerHeight; banners.forEach(b=>{ const r=b.getBoundingClientRect(); const off=((vh/2)-(r.top+r.height/2))*k*-1; b.style.transform=`translateY(${off}px) scale(1.02) skewX(-6deg)`; b.parentElement.classList.add('show'); }); requestAnimationFrame(tick);} requestAnimationFrame(tick);
-
-// Particles canvas
-const C=document.getElementById('particles'),X=C.getContext('2d'); let W,H,P=[];
-function rs(){W=C.width=innerWidth; H=C.height=innerHeight; const n=Math.min(150,Math.floor(W*H/16000));
-  P=[...Array(n)].map(()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+0.6,dx:(Math.random()-.5)*.25,dy:(Math.random()-.5)*.25,a:Math.random()*.6+.2}))}
-function dr(){X.clearRect(0,0,W,H); for(const p of P){p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>W)p.dx*=-1; if(p.y<0||p.y>H)p.dy*=-1; X.beginPath(); const g=X.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3); g.addColorStop(0,'rgba(124,242,155,'+p.a+')'); g.addColorStop(1,'rgba(124,242,155,0)'); X.fillStyle=g; X.arc(p.x,p.y,p.r*3,0,Math.PI*2); X.fill(); } requestAnimationFrame(dr) }
-addEventListener('resize',rs); rs(); dr();
-
-// Spotlight cursor
-const spot=document.querySelector('.spotlight');
-document.addEventListener('mousemove',(e)=>{ spot.style.setProperty('--mx', (e.clientX/window.innerWidth*100)+'%'); spot.style.setProperty('--my',(e.clientY/window.innerHeight*100)+'%'); });
-
-// Hero tilt
-const tilt=document.querySelector('.tilt');
-if(tilt){
-  tilt.addEventListener('mousemove',e=>{ const r=tilt.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; tilt.style.transform=`perspective(1000px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`;});
-  tilt.addEventListener('mouseleave',()=>tilt.style.transform='perspective(1000px) rotateY(0) rotateX(0)');
-}
+// Reveal sections on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add('visible');
+}),{threshold:.1});
+document.querySelectorAll('.section').forEach(el=>io.observe(el));
 
 // KPI counters
-const counters=[...document.querySelectorAll('[data-count]')];
-const ioCount=new IntersectionObserver((entries,obs)=>{
-  entries.forEach(ent=>{
-    if(ent.isIntersecting){
-      const el=ent.target; const target=+el.getAttribute('data-count'); let cur=0; const step=Math.max(1,Math.ceil(target/40));
-      const plus=el.getAttribute('data-plus') || '';
-      const inc=()=>{ cur+=step; if(cur>=target){ el.textContent=target+plus; } else { el.textContent=cur; requestAnimationFrame(inc);} };
-      inc(); obs.unobserve(el);
-    }
+const ioC=new IntersectionObserver((entries,obs)=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const el=en.target;
+    const target=+el.dataset.count;
+    const plus=el.dataset.plus||'';
+    let cur=0; const step=Math.max(1,Math.ceil(target/40));
+    const tick=()=>{ cur=Math.min(cur+step,target); el.textContent=cur+plus; if(cur<target) requestAnimationFrame(tick); };
+    tick(); obs.unobserve(el);
   });
 },{threshold:.6});
-counters.forEach(c=>ioCount.observe(c));
+document.querySelectorAll('[data-count]').forEach(el=>ioC.observe(el));
 
-// Back to top button
-const up=document.getElementById('up');
-addEventListener('scroll',()=>{ up.style.display = scrollY>600 ? 'block' : 'none'; });
-up.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// Expandable num tiles
+function toggleNum(tile){
+  const body=tile.querySelector('.num-body');
+  const isOpen=body.style.display==='block';
+  body.style.display=isOpen?'none':'block';
+  tile.classList.toggle('open', !isOpen);
+}
 </script>
 </body>
 </html>
