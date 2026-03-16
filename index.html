@@ -5,267 +5,537 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jacob Rubis — Hello!</title>
 <meta name="description" content="Jacob Rubis — From Michigan, love sports, getting outside, and staying active" />
-<meta name="theme-color" content="#0e3a4f" />
+<meta name="theme-color" content="#032D42" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0e3a4f; --bg2:#0b2f43;
-  --panel:#0f415a; --panel2:#0e3a52;
-  --text:#f1fbff; --muted:#bed5e4;
-  --brand:#79f2a6; --brand-2:#8fd8ff;
-  --border:#155674;
-  --radius:20px; --shadow:0 24px 60px rgba(0,0,0,.35);
-  --max:1180px;
+/* ════════════════════════════════════════════
+   SERVICENOW BRAND DESIGN SYSTEM
+   ════════════════════════════════════════════ */
+:root {
+  --primary:       #032D42;
+  --primary-mid:   #064663;
+  --green:         #63DF4E;
+  --green-safe:    #4CB83A;
+
+  --text-1:        #1E293B;
+  --text-2:        #475569;
+  --text-muted:    #94A3B8;
+
+  --surface-white: #FFFFFF;
+  --surface-light: #F8FAFC;
+  --page-bg:       #F1F5F9;
+
+  --border-light:  #E2E8F0;
+  --border-mid:    #CBD5E1;
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow-md:     0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg:     0 10px 15px -3px rgba(0,0,0,0.1);
+
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   16px;
+  --r-pill: 20px;
+
+  --max: 1180px;
+  --font: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
-*{box-sizing:border-box} html,body{height:100%}
-body{margin:0; color:var(--text); font:16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  background:radial-gradient(1200px 600px at 85% -10%, rgba(141,212,255,.18), transparent 60%), radial-gradient(900px 500px at -10% 10%, rgba(124,242,155,.14), transparent 60%), linear-gradient(180deg, var(--bg), var(--bg2)); background-size:200% 200%; animation:bgmove 22s linear infinite; overflow-x:hidden;}
-@keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.wrap{max-width:var(--max); margin:0 auto; padding:24px}
-a{color:var(--brand); text-decoration:none}
 
-header{position:sticky; top:0; z-index:60; border-bottom:1px solid var(--border); background:linear-gradient(to bottom, rgba(16,60,82,.92), rgba(16,60,82,.55)); backdrop-filter:saturate(140%) blur(10px)}
-.nav{display:flex; align-items:center; justify-content:space-between; gap:16px; max-width:var(--max); margin:0 auto; padding:12px 24px}
-.nav a{padding:10px 12px; border-radius:12px; color:var(--text); transition:transform .18s ease, background .18s ease}
-.nav a:hover{transform:translateY(-2px); background:rgba(255,255,255,.08)}
-.progress{height:3px; background:linear-gradient(90deg,var(--brand),var(--brand-2)); transform-origin:0 50%; transform:scaleX(0)}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-1);
+  background: var(--page-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--green-safe); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-.section{position:relative; margin:28px 0; transform:scale(.96); opacity:0; filter:blur(4px); transition:transform .7s cubic-bezier(.2,.85,.25,1), opacity .7s ease, filter .7s ease}
-.section.in{transform:scale(1); opacity:1; filter:blur(0)}
-.card{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--border); border-radius:20px; box-shadow:var(--shadow)}
-.pad{padding:26px}
-.banner{position:absolute; left:18px; right:18px; height:110px; top:-30px; border-radius:28px; opacity:.9; background:conic-gradient(from 180deg at 10% 50%, rgba(124,242,155,.16), rgba(141,212,255,.16), rgba(124,242,155,.16)); pointer-events:none}
+.wrap { max-width: var(--max); margin: 0 auto; padding: 24px; }
 
-h1{font-size:52px; line-height:1.08; margin:8px 0 4px}
-h2{font-size:28px; margin:0 0 10px}
-.muted{color:var(--muted)}
-.small{font-size:12px; color:var(--muted)}
-.badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--text); padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.05)}
+/* ── Header ── */
+header {
+  position: sticky; top: 0; z-index: 60;
+  background: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  max-width: var(--max); margin: 0 auto; padding: 16px 32px;
+}
+.nav-brand {
+  font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: 0.04em;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  padding: 6px 14px; border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.nav-links a.cta {
+  background: var(--green); color: var(--primary); font-weight: 700;
+}
+.nav-links a.cta:hover { filter: brightness(1.08); background: var(--green); }
+.progress {
+  height: 3px; background: var(--green);
+  transform-origin: 0 50%; transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
 
-.grid{display:grid; gap:18px}
-.grid-2{grid-template-columns:1.1fr .9fr}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-@media (max-width:980px){.grid-2,.grid-3{grid-template-columns:1fr}}
+/* ── Section reveal ── */
+.section {
+  margin-top: 24px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section.in { opacity: 1; transform: none; }
 
-.tile{position:relative; padding:16px; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.05); transition:transform .18s ease, box-shadow .18s ease}
-.tile:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.img{width:100%; height:100%; object-fit:cover; display:block; border-radius:12px; border:1px solid var(--border)}
-.caption{margin-top:8px; font-size:13px; color:var(--muted)}
+/* ── Card ── */
+.card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-subtle);
+}
+.card-accent { border-top: 3px solid var(--green); }
 
-/* Carousel */
-.carousel{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border); background:#083040}
-.carousel .frame{position:relative; height:min(60vh,540px)}
-.carousel img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s ease}
-.carousel img.active{opacity:1}
-.carousel .title{position:absolute; left:16px; bottom:16px; background:rgba(0,0,0,.45); padding:8px 12px; border-radius:10px; font-weight:700}
-.carousel .controls{position:absolute; inset:auto 0 12px 0; display:flex; justify-content:center; gap:10px}
-.carousel button{border:0; border-radius:12px; padding:8px 12px; font-weight:800; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#072e21; cursor:pointer}
-.carousel .dots{position:absolute; right:12px; top:12px; display:flex; gap:6px}
-.carousel .dots span{width:9px; height:9px; border-radius:999px; background:rgba(255,255,255,.35)}
-.carousel .dots span.on{background:#fff}
-.carousel .pause{position:absolute; right:12px; bottom:12px; border:0; border-radius:50%; width:36px; height:36px; background:rgba(0,0,0,.55); color:#fff; font-weight:800; cursor:pointer}
+/* ── Hero banner ── */
+.hero-banner {
+  background: linear-gradient(135deg, #032D42 0%, #064663 100%);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  border: 1px solid rgba(99,223,78,0.25);
+  box-shadow: var(--shadow-lg);
+  position: relative; overflow: hidden;
+}
+.hero-banner::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 95% 0%, rgba(99,223,78,0.1), transparent 65%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px; align-items: center;
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-photo { display: none; }
+}
 
-footer{color:var(--muted); text-align:center; padding:40px 0}
+.hero-location {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 12px; border-radius: var(--r-pill);
+  background: rgba(99,223,78,0.12); border: 1px solid rgba(99,223,78,0.3);
+  font-size: 12px; font-weight: 700; color: var(--green);
+  letter-spacing: 0.04em; margin-bottom: 16px;
+}
+.hero-location .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0;
+}
+
+h1 {
+  font-size: 38px; font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.02em; color: #fff; margin-bottom: 8px;
+}
+.hero-role {
+  font-size: 13px; font-weight: 600; color: var(--green);
+  letter-spacing: 0.04em; margin-bottom: 16px;
+}
+.hero-body {
+  font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 12px;
+}
+.hero-body strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+.hero-highlight {
+  font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.6;
+  padding: 12px 16px; border-radius: var(--r-md);
+  background: rgba(99,223,78,0.08); border-left: 3px solid var(--green);
+  margin-bottom: 20px;
+}
+.hero-highlight strong { color: var(--green); font-weight: 700; }
+
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: var(--r-pill);
+  background: var(--green); color: var(--primary);
+  font-size: 13px; font-weight: 700;
+  box-shadow: var(--shadow-md);
+  transition: filter 0.15s;
+  text-decoration: none;
+}
+.hero-cta:hover { filter: brightness(1.08); text-decoration: none; }
+
+.hero-photo {
+  display: flex; justify-content: center; align-items: center; z-index: 1;
+}
+.hero-photo img {
+  width: min(300px, 36vw);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 10px solid var(--green);
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* ── Section headings ── */
+h2 {
+  font-size: 20px; font-weight: 700; color: var(--primary);
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border-light);
+  margin-bottom: 20px;
+}
+h2::after { content: ""; flex: 1; height: 1px; background: var(--border-light); }
+.sec-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: var(--r-pill);
+  background: rgba(3,45,66,0.08); color: var(--primary);
+  border: 1px solid rgba(3,45,66,0.2);
+}
+
+/* ── Info tiles grid ── */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+@media (max-width: 700px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.tile {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-md);
+  padding: 20px;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.tile:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.tile strong {
+  font-size: 14px; font-weight: 700; color: var(--primary);
+  display: block; margin-bottom: 8px;
+}
+.tile p { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+/* ── Parks badge list ── */
+.parks-list {
+  margin-top: 16px;
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--green);
+  border-radius: var(--r-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-subtle);
+}
+.parks-list strong {
+  font-size: 13px; font-weight: 700; color: var(--primary);
+  display: block; margin-bottom: 10px;
+}
+.badge-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge {
+  display: inline-block;
+  padding: 3px 10px; border-radius: var(--r-md);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  background: rgba(3,45,66,0.07);
+  color: var(--primary);
+  border: 1px solid rgba(3,45,66,0.2);
+}
+
+/* ── Carousel ── */
+.carousel {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: var(--primary);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.carousel .frame { position: relative; height: min(58vh, 520px); }
+.carousel img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 0.55s ease;
+}
+.carousel img.active { opacity: 1; }
+.carousel .slide-title {
+  position: absolute; left: 16px; bottom: 56px;
+  background: rgba(3,45,66,0.75); backdrop-filter: blur(6px);
+  padding: 6px 12px; border-radius: var(--r-sm);
+  font-size: 12px; font-weight: 700; color: #fff;
+  border: 1px solid rgba(99,223,78,0.3);
+}
+.carousel .controls {
+  position: absolute; inset: auto 0 0 0;
+  display: flex; justify-content: center; align-items: center;
+  gap: 10px; padding: 10px 16px;
+  background: linear-gradient(to top, rgba(3,45,66,0.75), transparent);
+}
+.carousel .ctrl-btn {
+  border: 0; border-radius: var(--r-sm);
+  padding: 6px 14px; font-size: 12px; font-weight: 700;
+  background: rgba(255,255,255,0.15); color: #fff;
+  cursor: pointer; backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.15s;
+}
+.carousel .ctrl-btn:hover { background: rgba(255,255,255,0.25); }
+.carousel .ctrl-btn.primary-btn {
+  background: var(--green); color: var(--primary);
+  border-color: transparent;
+}
+.carousel .ctrl-btn.primary-btn:hover { filter: brightness(1.08); }
+.carousel .dots {
+  position: absolute; right: 14px; top: 14px;
+  display: flex; gap: 6px;
+}
+.carousel .dots span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel .dots span.on { background: var(--green); }
+.carousel .pause-btn {
+  border: 0; border-radius: 50%;
+  width: 32px; height: 32px;
+  background: rgba(0,0,0,0.45); color: #fff;
+  font-size: 11px; font-weight: 800;
+  cursor: pointer; border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ── Footer CTA card ── */
+.cta-card {
+  text-align: center;
+  background: linear-gradient(135deg, #032D42 0%, #064663 100%);
+  border: 1px solid rgba(99,223,78,0.25);
+  border-radius: var(--r-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-lg);
+}
+.cta-card p {
+  font-size: 14px; color: rgba(255,255,255,0.7);
+  margin-bottom: 20px;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center; padding: 32px 0 24px;
+  border-top: 1px solid var(--border-light);
+  margin-top: 8px; font-size: 12px; color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
+
 <header>
   <div class="nav">
-    <div class="small">Jacob Rubis</div>
-    <nav>
+    <span class="nav-brand">Jacob Rubis</span>
+    <nav class="nav-links">
       <a href="#aboutlife">About Me</a>
       <a href="#travel">National Parks</a>
       <a href="#cooper">Cooper</a>
-      <a href="#now">Now</a>
-      <a href="careerprofile.html"><strong>Career Profile →</strong></a>
+      <a href="careerprofile.html" class="cta">Career Profile →</a>
     </nav>
   </div>
   <div class="progress" id="progress"></div>
 </header>
 
 <main class="wrap">
-  <!-- HERO -->
-  <section class="section card pad">
-    <div class="grid grid-2">
+
+  <!-- ── HERO ── -->
+  <div class="hero-banner section" id="top">
+    <div class="hero-grid">
       <div>
-        <div class="badge">Metro Detroit • Michigan State University</div>
+        <div class="hero-location"><span class="dot"></span>Metro Detroit · Michigan State University</div>
         <h1>Hey, I'm Jacob Rubis</h1>
-        <div class="small" style="margin:2px 0 10px; opacity:.9"> BDR @ ServiceNow</div>
-        <p class="muted">
-          I earned my <strong>Marketing &amp; Sales</strong> degree at <strong>Michigan State University</strong> (Spartan through and through). I've been living in San Diego since August 2024! I love playing sports, exploring, and staying active.
+        <div class="hero-role">BDR @ ServiceNow · San Diego, CA</div>
+        <p class="hero-body">
+          I earned my <strong>Marketing &amp; Sales</strong> degree at <strong>Michigan State University</strong> (Spartan through and through). Living in San Diego since August 2024. I love playing sports, exploring, and staying active.
         </p>
-        <p class="muted">
-          <strong>2025 highlight: I become an uncle and Godfather in July! I got a certification from MIT in December!</strong>
-        </p>
-        <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap">
-          <a href="https://www.linkedin.com/in/jacobrubis/" target="_blank" class="tile" style="padding:10px 14px; border-radius:12px; font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2))">LinkedIn</a>
+        <div class="hero-highlight">
+          <strong>2025 highlights:</strong> Becoming an uncle and Godfather in July — and earning a certification from MIT in December.
         </div>
+        <a href="https://www.linkedin.com/in/jacobrubis/" target="_blank" rel="noopener" class="hero-cta">LinkedIn ↗</a>
       </div>
+      <div class="hero-photo">
+        <img src="assets/1HEADSHOT.jpg" alt="Jacob Rubis headshot" loading="lazy">
+      </div>
+    </div>
+  </div>
 
-      <!-- Circular brand-ring headshot -->
-      <div style="
-        width:min(340px,38vw);
-        aspect-ratio:1/1;
-        border-radius:50%;
-        border:14px solid #79f2a6;
-        box-shadow:inset 0 12px 40px rgba(0,0,0,.35),0 10px 28px rgba(0,0,0,.25);
-        overflow:hidden;
-        background:#0c1a22;
-        margin-inline:auto;
-      ">
-        <img src="assets/1HEADSHOT.jpg" alt="Jacob Rubis headshot" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+  <!-- ── ABOUT ── -->
+  <section id="aboutlife" class="section card card-accent">
+    <h2><span class="sec-tag">Background</span> About Me</h2>
+    <div class="grid-3">
+      <div class="tile">
+        <strong>Michigan State Pride</strong>
+        <p>Earned my Marketing &amp; Sales degree at MSU (Go Green!). Interned in sales and built a foundation in teamwork and process.</p>
+      </div>
+      <div class="tile">
+        <strong>Sports</strong>
+        <p>Detroit sports fan (Go Lions 🦁). Grew up playing baseball &amp; basketball; still hoop in leagues. Picked up golf during COVID and play often — my bank account would say too often!</p>
+      </div>
+      <div class="tile">
+        <strong>Hobbies</strong>
+        <p>I love my dog Cooper (wish I got to see him more), outdoor adventures and nature, and I'm challenging myself with running.</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="aboutlife" class="section card pad">
-    <h2>About Me</h2>
-    <div class="grid grid-3">
-      <div class="tile"><strong>Michigan State Pride</strong><p class="muted">Earned my Marketing &amp; Sales degree at <strong>MSU</strong> (Go Green!). I interned in sales and built a foundation in teamwork and process.</p></div>
-      <div class="tile"><strong>Sports</strong><p class="muted">Detroit sports fan (Go Lions 🦁). Grew up playing baseball &amp; basketball; still hoop in leagues. Picked up golf during COVID and play often (my bank account would say too often!).</p></div>
-      <div class="tile"><strong>Hobbies</strong><p class="muted">I love my dog Cooper (wish I got to see him more), like outdoor adventures and nature, and I'm challenging myself with running.</p></div>
-    </div>
-  </section>
-
-  <!-- PARKS -->
-  <section id="travel" class="section card pad">
-    <h2>National Parks</h2>
-    <p class="muted">I've driven Michigan ↔ San Diego twice, stopping at parks along the way.</p>
+  <!-- ── NATIONAL PARKS ── -->
+  <section id="travel" class="section card card-accent">
+    <h2><span class="sec-tag">Adventures</span> National Parks</h2>
+    <p style="font-size:14px;color:var(--text-2);margin-bottom:20px">I've driven Michigan ↔ San Diego twice, stopping at parks along the way.</p>
     <div class="carousel" data-id="parks">
       <div class="frame"></div>
-      <div class="title small"></div>
+      <div class="slide-title"></div>
       <div class="dots"></div>
-      <button class="pause" aria-label="Pause/Play">❚❚</button>
+      <button class="pause-btn" aria-label="Pause/Play">❚❚</button>
       <div class="controls">
-        <button data-prev>‹ Prev</button>
-        <button data-next>Next ›</button>
+        <button class="ctrl-btn" data-prev>‹ Prev</button>
+        <button class="ctrl-btn" data-next>Next ›</button>
       </div>
     </div>
-    <div class="tile" style="margin-top:14px">
-      <strong>National Parks I've visited: <span id="parksCount">0</span></strong>
-      <div id="parksBadges" style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px"></div>
+    <div class="parks-list">
+      <strong>National Parks visited: <span id="parksCount">0</span></strong>
+      <div class="badge-wrap" id="parksBadges"></div>
     </div>
   </section>
 
-  <!-- COOPER -->
-  <section id="cooper" class="section card pad">
-    <h2>Cooper 🐶</h2>
+  <!-- ── COOPER ── -->
+  <section id="cooper" class="section card card-accent">
+    <h2><span class="sec-tag">The Best One</span> Cooper 🐶</h2>
     <div class="carousel" data-id="cooper">
       <div class="frame"></div>
-      <div class="title small"></div>
+      <div class="slide-title"></div>
       <div class="dots"></div>
-      <button class="pause" aria-label="Pause/Play">❚❚</button>
+      <button class="pause-btn" aria-label="Pause/Play">❚❚</button>
       <div class="controls">
-        <button data-prev>‹ Prev</button>
-        <button data-next>Next ›</button>
+        <button class="ctrl-btn" data-prev>‹ Prev</button>
+        <button class="ctrl-btn" data-next>Next ›</button>
       </div>
     </div>
   </section>
 
-  <!-- NOW (updated with just AI Projects) -->
-  <section id="now" class="section card pad">
-    <div class="banner" aria-hidden="true"></div>
-    <h2>Now</h2>
-    <div class="grid grid-3">
-      <div class="tile">
-        <strong>AI Projects</strong>
-        <p class="muted">Building small tools that save time (email drafting, discovery summaries, pre-call briefs). Focused on adoption and measurable impact—then sharing out with the team.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section card pad" style="text-align:center">
-    <div class="banner" aria-hidden="true"></div>
-    <a href="careerprofile.html" class="tile" style="padding:10px 14px; border-radius:12px; font-weight:800; color:#072e21; background:linear-gradient(135deg,var(--brand),var(--brand-2))">View Career Profile</a>
-  </section>
+  <!-- ── CTA ── -->
+  <div class="cta-card section">
+    <p>Want to learn more about my work, AI projects, and career development?</p>
+    <a href="careerprofile.html" class="hero-cta">View Career Profile →</a>
+  </div>
 
   <footer>
-    <p class="small">© <span id="year"></span> Jacob Rubis</p>
+    <p>© <span id="year"></span> Jacob Rubis</p>
   </footer>
+
 </main>
 
 <script>
 /* Progress bar */
-const progress=document.getElementById('progress');
-addEventListener('scroll',()=>{ const s=scrollY/(document.body.scrollHeight-innerHeight); progress.style.transform=`scaleX(${Math.max(0,Math.min(1,s))})`; });
+const progress = document.getElementById('progress');
+addEventListener('scroll', () => {
+  const s = scrollY / (document.body.scrollHeight - innerHeight);
+  progress.style.transform = `scaleX(${Math.max(0, Math.min(1, s))})`;
+});
 
 /* Section reveal */
-const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); }); },{threshold:.18});
-document.querySelectorAll('.section').forEach(s=>io.observe(s));
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.section').forEach(s => io.observe(s));
 
-document.getElementById('year').textContent=(new Date).getFullYear();
+document.getElementById('year').textContent = (new Date).getFullYear();
 
 /* Carousel */
-function makeCarousel(root, items, intervalMs=5000){
-  const frame=root.querySelector('.frame');
-  const title=root.querySelector('.title');
-  const dots=root.querySelector('.dots');
-  const pauseBtn=root.querySelector('.pause');
+function makeCarousel(root, items, intervalMs = 5000) {
+  const frame    = root.querySelector('.frame');
+  const titleEl  = root.querySelector('.slide-title');
+  const dots     = root.querySelector('.dots');
+  const pauseBtn = root.querySelector('.pause-btn');
 
-  let idx=0;
-  let timer=null;
-  let playing=true;
+  let idx = 0, timer = null, playing = true;
 
-  items.forEach((it,i)=>{
-    const img=document.createElement('img');
-    img.src=it.src; img.alt=it.title || 'photo'; img.loading='lazy';
-    if(i===0) img.classList.add('active');
+  items.forEach((it, i) => {
+    const img = document.createElement('img');
+    img.src = it.src; img.alt = it.title || 'photo'; img.loading = 'lazy';
+    if (i === 0) img.classList.add('active');
     frame.appendChild(img);
-    const dot=document.createElement('span');
-    if(i===0) dot.classList.add('on');
-    dot.addEventListener('click',()=>go(i));
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('on');
+    dot.addEventListener('click', () => go(i));
     dots.appendChild(dot);
   });
 
-  const imgs=[...frame.querySelectorAll('img')];
-  const dotEls=[...dots.children];
+  const imgs   = [...frame.querySelectorAll('img')];
+  const dotEls = [...dots.children];
 
-  function sync(){ imgs.forEach((im,i)=>im.classList.toggle('active',i===idx));
-                   dotEls.forEach((d,i)=>d.classList.toggle('on',i===idx));
-                   title.textContent=items[idx]?.title||''; }
-  function start(){ if(timer!==null) return; timer=setInterval(next,intervalMs); }
-  function stop(){ if(timer!==null){ clearInterval(timer); timer=null; } }
-  function go(n){ idx=(n+items.length)%items.length; sync(); if(playing){ stop(); start(); } }
-  function next(){ go(idx+1); }
-  function prev(){ go(idx-1); }
+  function sync() {
+    imgs.forEach((im, i) => im.classList.toggle('active', i === idx));
+    dotEls.forEach((d, i) => d.classList.toggle('on', i === idx));
+    if (titleEl) titleEl.textContent = items[idx]?.title || '';
+  }
+  function start() { if (timer !== null) return; timer = setInterval(next, intervalMs); }
+  function stop()  { if (timer !== null) { clearInterval(timer); timer = null; } }
+  function go(n)   { idx = (n + items.length) % items.length; sync(); if (playing) { stop(); start(); } }
+  function next()  { go(idx + 1); }
+  function prev()  { go(idx - 1); }
 
   root.querySelector('[data-next]').addEventListener('click', next);
   root.querySelector('[data-prev]').addEventListener('click', prev);
-  pauseBtn.addEventListener('click',()=>{ playing=!playing; if(playing){ pauseBtn.textContent='❚❚'; start(); } else { pauseBtn.textContent='▶'; stop(); } });
+  pauseBtn.addEventListener('click', () => {
+    playing = !playing;
+    pauseBtn.textContent = playing ? '❚❚' : '▶';
+    playing ? start() : stop();
+  });
 
   sync(); start();
 }
 
-/* Images you uploaded */
 const carousels = {
   parks: [
-    {src:'assets/Badlands.JPG',    title:'Badlands National Park'},
-    {src:'assets/Yosemite1.JPG',   title:'Yosemite National Park'},
-    {src:'assets/Bryce.JPG',       title:'Bryce Canyon National Park'},
-    {src:'assets/GrandTeton.JPG',  title:'Grand Teton National Park'},
-    {src:'assets/GrandTeton2.JPG', title:'Grand Teton National Park'},
-    {src:'assets/Glacier.jpeg',    title:'Glacier National Park'}
+    { src: 'assets/Badlands.JPG',    title: 'Badlands National Park' },
+    { src: 'assets/Yosemite1.JPG',   title: 'Yosemite National Park' },
+    { src: 'assets/Bryce.JPG',       title: 'Bryce Canyon National Park' },
+    { src: 'assets/GrandTeton.JPG',  title: 'Grand Teton National Park' },
+    { src: 'assets/GrandTeton2.JPG', title: 'Grand Teton National Park' },
+    { src: 'assets/Glacier.jpeg',    title: 'Glacier National Park' }
   ],
   cooper: [
-    {src:'assets/Cooper1.JPG'},
-    {src:'assets/Cooper2.JPG'},
-    {src:'assets/Cooper3.JPG'},
-    {src:'assets/Cooper4.JPG'}
+    { src: 'assets/Cooper1.JPG' },
+    { src: 'assets/Cooper2.JPG' },
+    { src: 'assets/Cooper3.JPG' },
+    { src: 'assets/Cooper4.JPG' }
   ]
 };
 
-document.querySelectorAll('.carousel').forEach(el=>{
-  const id=el.getAttribute('data-id');
-  const items=carousels[id]||[];
-  if(items.length) makeCarousel(el, items, 5000);
+document.querySelectorAll('.carousel').forEach(el => {
+  const id    = el.getAttribute('data-id');
+  const items = carousels[id] || [];
+  if (items.length) makeCarousel(el, items, 5000);
 });
 
-/* Badges: show ALL 10 unique parks */
-const allParks=['Badlands','Great Basin','Rocky Mountain','Zion','Arches','Grand Canyon','Grand Teton','Yosemite','Joshua Tree','Glacier'];
-const badgesWrap=document.getElementById('parksBadges');
-if(badgesWrap){
-  allParks.forEach(n=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=n; badgesWrap.appendChild(b); });
-  document.getElementById('parksCount').textContent=allParks.length;
+/* Parks badges */
+const allParks = ['Badlands','Great Basin','Rocky Mountain','Zion','Arches','Grand Canyon','Grand Teton','Yosemite','Joshua Tree','Glacier'];
+const badgesWrap = document.getElementById('parksBadges');
+if (badgesWrap) {
+  allParks.forEach(n => {
+    const b = document.createElement('span');
+    b.className = 'badge';
+    b.textContent = n;
+    badgesWrap.appendChild(b);
+  });
+  document.getElementById('parksCount').textContent = allParks.length;
 }
 </script>
 </body>
