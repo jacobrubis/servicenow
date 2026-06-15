@@ -408,7 +408,7 @@ header, main, footer, #up { position: relative; z-index: 2; }
 <main class="wrap">
 
   <!-- ── HERO ── -->
-  <div class="hero-grid section" id="top">
+  <div class="section" id="top" style="margin-top:24px;">
     <div class="hero-banner">
       <div class="star-icon" aria-hidden="true">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -424,30 +424,107 @@ header, main, footer, #up { position: relative; z-index: 2; }
       <div class="role-badge"><span class="dot"></span>Jacob Rubis — BDR @ ServiceNow</div>
       <h1><span class="name">Jacob Rubis</span> · Team player. Builder. Always sharing success.</h1>
       <p class="hero-sub">I identify simpler ways of working and turn them into scalable tools that improve team performance. This page captures contributions and career development.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+        <li style="font-size:14px;color:rgba(255,255,255,0.75);padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:0;color:var(--green);font-size:12px;">▸</span>Process-first — enablement impact beyond my role, tools others use daily.</li>
+        <li style="font-size:14px;color:rgba(255,255,255,0.75);padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:0;color:var(--green);font-size:12px;">▸</span>Coachable, curious, and quick to implement feedback to improve outcomes.</li>
+        <li style="font-size:14px;color:rgba(255,255,255,0.75);padding-left:18px;position:relative;"><span style="position:absolute;left:0;top:0;color:var(--green);font-size:12px;">▸</span>I aim to improve the team's success rate, not just my own.</li>
+      </ul>
       <div class="kpis">
         <div class="kpi">
           <strong data-count="50" data-plus="+">0</strong>
-          <span>reps using shared assets</span>
+          <span>employees using shared assets</span>
         </div>
         <div class="kpi">
-          <strong data-count="10" data-plus="+">0</strong>
+          <strong data-count="11" data-plus="+">0</strong>
           <span>AI tools built</span>
         </div>
       </div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+        <span class="ts" style="color:rgba(255,255,255,0.35);">Last updated <span id="updatedFoot"></span> · Internal only</span>
+      </div>
     </div>
+  </div>
 
-    <div class="card summary-panel">
-      <h2>Career Profile — Summary</h2>
-      <ul class="sum-list">
-        <li>Proven across <strong>Mid-Market, Commercial, and Enterprise</strong> — covered all 3 segments.</li>
-        <li>Last 5 quarters: <strong>among the highest attainers</strong> on my team.</li>
-        <li>Last 4 quarters: <strong>exceeded quota</strong> in consecutive quarters.</li>
-        <li>Process-first — enablement impact beyond my role, tools others use daily.</li>
-        <li>Coachable, curious, and quick to implement feedback to improve outcomes.</li>
-        <li>I aim to improve the team's success rate, not just my own.</li>
-      </ul>
-      <div class="hr"></div>
-      <span class="ts">Last updated <span id="updatedFoot"></span> · Internal only</span>
+  <!-- ── QUOTA METRICS ── -->
+  <div class="section" style="margin-top:16px;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+
+      <!-- Q1 2026 — dark featured -->
+      <div style="background:linear-gradient(135deg,#032D42,#064663);border:1px solid rgba(99,223,78,0.35);border-radius:var(--r-md);padding:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);">Q1 2026</span>
+          <span style="font-size:10px;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);background:var(--green);color:var(--primary);">156% QUOTA</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.4);margin-bottom:3px;">Opportunities</div>
+            <div style="font-size:26px;font-weight:800;color:var(--green);letter-spacing:-0.02em;">21</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.4);margin-bottom:3px;">Pipeline Generated</div>
+            <div style="font-size:26px;font-weight:800;color:var(--green);letter-spacing:-0.02em;">$4.7M</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.4);margin-bottom:3px;">Mature Pipeline</div>
+            <div style="font-size:26px;font-weight:800;color:var(--green);letter-spacing:-0.02em;">$3.67M</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 2025 -->
+      <div style="background:var(--surface-white);border:1px solid var(--border-light);border-radius:var(--r-md);padding:20px;box-shadow:var(--shadow-subtle);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Q4 2025</span>
+          <span style="font-size:10px;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);background:rgba(99,223,78,0.12);color:var(--green-safe);border:1px solid rgba(99,223,78,0.3);">135%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;">Opportunities</div>
+            <div style="font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.02em;">24</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;">Pipeline Generated</div>
+            <div style="font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.02em;">$1.1M</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 2025 -->
+      <div style="background:var(--surface-white);border:1px solid var(--border-light);border-radius:var(--r-md);padding:20px;box-shadow:var(--shadow-subtle);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Q3 2025</span>
+          <span style="font-size:10px;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);background:rgba(99,223,78,0.12);color:var(--green-safe);border:1px solid rgba(99,223,78,0.3);">106%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;">Opportunities</div>
+            <div style="font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.02em;">23</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;">Pipeline Generated</div>
+            <div style="font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.02em;">$782K</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 2025 -->
+      <div style="background:var(--surface-white);border:1px solid var(--border-light);border-radius:var(--r-md);padding:20px;box-shadow:var(--shadow-subtle);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Q2 2025</span>
+          <span style="font-size:10px;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);background:rgba(99,223,78,0.12);color:var(--green-safe);border:1px solid rgba(99,223,78,0.3);">106%</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;">Opportunities</div>
+            <div style="font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.02em;">20</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;">Pipeline Generated</div>
+            <div style="font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.02em;">—</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -780,7 +857,7 @@ header, main, footer, #up { position: relative; z-index: 2; }
           <ul class="exp-list">
             <li>Consistently strong results across Mid-Market, Commercial, and Enterprise.</li>
             <li>Among the highest attainers for the last five quarters.</li>
-            <li>Exceeded quota for the last four consecutive quarters.</li>
+            <li>Exceeded quota for the last four consecutive quarters — 156%, 135%, 106%, 106%.</li>
             <li>Other reps have booked multiple meetings using my email templates and tools.</li>
           </ul>
         </div>
